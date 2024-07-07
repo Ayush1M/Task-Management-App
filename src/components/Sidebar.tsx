@@ -1,10 +1,10 @@
-import { FC, ReactNode } from "react"
+import { ReactNode } from "react"
 
 type SidebarProp = {
     children : ReactNode
 }
 
-const Sidebar : FC<SidebarProp> = ({children}) => {
+const Sidebar = ({children} : SidebarProp) => {
     return (
         children
     )

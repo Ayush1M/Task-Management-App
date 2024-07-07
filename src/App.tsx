@@ -1,8 +1,9 @@
 import Sidebar from "./components/Sidebar"
+import NewTask from "./components/NewTask"
 
 export default function App(){
     return (
-        <main className="h-screen my-8">
+        <main className="h-screen my-8 flex gap-8"> 
             <Sidebar>
             <aside className="w-1/3 px-8 py-16 bg-black text-white rounded-r-xl">
                 <h2 className="mb-8 font-bold uppercase">Your Tasks</h2>
@@ -11,6 +12,7 @@ export default function App(){
                 </div>
             </aside>
             </Sidebar>
+            <NewTask />
         </main>
     )
 }
