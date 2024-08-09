@@ -5,9 +5,9 @@ type InputProp = {
 
 const Input = ({ textarea, label } : InputProp) => {
     return (
-        <p>
+        <p className="flex flex-col gap-2 my-8">
             <label>{label}</label>
-            {textarea ? <textarea /> : <input />}
+            {textarea ? <textarea className="resize-none px-2 py-1 border-2 rounded-md border-stone-800" /> : <input className="p-1 border-2 rounded-md border-stone-800"/>}
         </p>
     )
 }
