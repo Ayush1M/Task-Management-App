@@ -1,5 +1,6 @@
 import Sidebar from "./components/Sidebar"
 import NewTask from "./components/NewTask"
+import NoProjectSelected from "./components/NoTaskSelected"
 
 export default function App(){
     return (
@@ -12,7 +13,7 @@ export default function App(){
                 </div>
             </aside>
             </Sidebar>
-            <NewTask />
+            <NoProjectSelected />
         </main>
     )
 }
