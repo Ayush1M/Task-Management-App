@@ -14,9 +14,9 @@ const NewTask = () => {
         </menu>
 
         <div>
-           <Input label="Title" textarea={false} />
+           <Input type="text" label="Title" textarea={false} />
            <Input label="Description" textarea={true} />
-           <Input label="Due Date" textarea={false} />
+           <Input type="date" label="Due Date" textarea={false} />
         </div>
         </div>
     )
