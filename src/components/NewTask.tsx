@@ -1,6 +1,11 @@
+import { useRef } from "react"
 import Input from "./Input"
 
 const NewTask = () => {
+    const title = useRef<HTMLInputElement>()
+    const description = useRef<HTMLInputElement>()
+    const dueDate = useRef<HTMLInputElement>()
+
     return (
         <div className="w-[35rem] p-4">
         <menu className="flex items-center justify-end gap-4">
