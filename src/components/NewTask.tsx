@@ -2,9 +2,9 @@ import { useRef } from "react"
 import Input from "./Input"
 
 const NewTask = () => {
-    const title = useRef<HTMLInputElement>()
-    const description = useRef<HTMLInputElement>()
-    const dueDate = useRef<HTMLInputElement>()
+    const title = useRef<HTMLInputElement>(null)
+    const description = useRef<HTMLInputElement>(null)
+    const dueDate = useRef<HTMLInputElement>(null)
 
     return (
         <div className="w-[35rem] p-4">
@@ -14,9 +14,9 @@ const NewTask = () => {
         </menu>
 
         <div>
-           <Input type="text" label="Title" textarea={false} />
-           <Input label="Description" textarea={true} />
-           <Input type="date" label="Due Date" textarea={false} />
+           <Input ref={title} type="text" label="Title" textarea={false} />
+           <Input ref={description} label="Description" textarea={true} />
+           <Input ref={dueDate} type="date" label="Due Date" textarea={false} />
         </div>
         </div>
     )
