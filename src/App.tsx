@@ -41,6 +41,7 @@ export default function App(){
             }
             return {
                 ...prev,
+                selectedTaskId : undefined,
                 tasks : [...prev.tasks, NewTask]
             }
         })
