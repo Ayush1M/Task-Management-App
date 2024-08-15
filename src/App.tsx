@@ -3,13 +3,13 @@ import NewTask from "./components/NewTask"
 import NoTaskSelected from "./components/NoTaskSelected"
 import { useState } from "react"
 
-type taskProp = {
+type TaskProp = {
     selectedTaskId : string | null | undefined,
     tasks : any[]
 }
 
 export default function App(){
-    const [task, setTask] = useState<taskProp>({
+    const [task, setTask] = useState<TaskProp>({
         selectedTaskId : undefined,
         tasks : []
     })
