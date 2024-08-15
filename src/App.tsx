@@ -4,7 +4,7 @@ import NoTaskSelected from "./components/NoTaskSelected"
 import { useState } from "react"
 import { RefProp } from "./components/NewTask"
 
-type SaveTaskProps = {
+export type SaveTaskProps = {
     title : string,
     description : string,
     dueDate : string,
@@ -57,7 +57,7 @@ export default function App(){
 
     return (
         <main className="h-screen py-4 flex gap-8"> 
-            <Sidebar onAddTask= {handleAddTask} />
+            <Sidebar onAddTask= {handleAddTask} tasks={task.tasks}/>
             {content}
         </main>
     )
