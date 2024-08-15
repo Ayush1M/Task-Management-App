@@ -1,16 +1,29 @@
 import { useRef } from "react"
 import Input from "./Input"
 
-const NewTask = () => {
+export type RefProp = {
+    enteredTitle : string,
+    enteredDescription : string,
+    enteredDueDate : string
+}
+
+type SaveProp = {
+    onSave : (data : RefProp) => void
+}
+
+const NewTask = ({onSave} : SaveProp) => {
     const title = useRef<HTMLInputElement>(null)
     const description = useRef<HTMLInputElement>(null)
     const dueDate = useRef<HTMLInputElement>(null)
 
     const handleSave = () => {
-        const enteredTitle = title.current?.value
-        const enteredDescription = description.current?.value
-        const enteredDueDate = dueDate.current?.value
+        const enteredTitle = title.current?.value ?? ""
+        const enteredDescription = description.current?.value ?? ""
+        const enteredDueDate = dueDate.current?.value ?? ""
+
+        onSave({enteredTitle, enteredDescription, enteredDueDate})
     }
+
 
     return (
         <div className="w-[35rem] p-4">

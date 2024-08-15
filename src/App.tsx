@@ -2,10 +2,18 @@ import Sidebar from "./components/Sidebar"
 import NewTask from "./components/NewTask"
 import NoTaskSelected from "./components/NoTaskSelected"
 import { useState } from "react"
+import { RefProp } from "./components/NewTask"
+
+type SaveTaskProps = {
+    title : string,
+    description : string,
+    dueDate : string,
+    id : string
+}
 
 type TaskProp = {
     selectedTaskId : string | null | undefined,
-    tasks : any[]
+    tasks : SaveTaskProps[]
 }
 
 export default function App(){
@@ -23,10 +31,25 @@ export default function App(){
         })
     }
 
+    function handleTask({enteredTitle, enteredDescription, enteredDueDate} : RefProp){
+        setTask(prev => {
+            const NewTask : SaveTaskProps = {
+                title : enteredTitle,
+                description : enteredDescription,
+                dueDate : enteredDueDate,
+                id : crypto.randomUUID()
+            }
+            return {
+                ...prev,
+                tasks : [...prev.tasks, NewTask]
+            }
+        })
+    }
+
     let content
 
     if(task.selectedTaskId === null){
-        content = <NewTask />
+        content = <NewTask onSave={handleTask}/>
     }else if(task.selectedTaskId === undefined){
         content = <NoTaskSelected onAddTask= {handleAddTask}/>
     }
