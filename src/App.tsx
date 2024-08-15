@@ -4,7 +4,7 @@ import NoTaskSelected from "./components/NoTaskSelected"
 import { useState } from "react"
 
 type taskProp = {
-    selectedTaskId : number | null | undefined,
+    selectedTaskId : string | null | undefined,
     tasks : any[]
 }
 
