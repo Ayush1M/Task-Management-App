@@ -1,4 +1,4 @@
-import { SaveTaskProps } from "../App"
+import { type SaveTaskProps } from "../App"
 
 type SidebarProp = {
     onAddTask : () => void,

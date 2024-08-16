@@ -2,7 +2,7 @@ import Sidebar from "./components/Sidebar"
 import NewTask from "./components/NewTask"
 import NoTaskSelected from "./components/NoTaskSelected"
 import { useState } from "react"
-import { RefProp } from "./components/NewTask"
+import { type RefProp } from "./components/NewTask"
 
 export type SaveTaskProps = {
     title : string,
