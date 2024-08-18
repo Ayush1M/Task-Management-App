@@ -21,6 +21,12 @@ const NewTask = ({onSave} : SaveProp) => {
         const enteredDescription = description.current?.value ?? ""
         const enteredDueDate = dueDate.current?.value ?? ""
 
+        if(enteredTitle.trim() === "" || 
+        enteredDescription.trim() === "" || 
+        enteredDueDate.trim() === ""){
+            
+        }
+
         onSave({enteredTitle, enteredDescription, enteredDueDate})
     }
 
