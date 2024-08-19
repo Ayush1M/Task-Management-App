@@ -1,5 +1,6 @@
 import { useRef } from "react"
 import Input from "./Input"
+import Modal, { ModalHandle } from "./Modal"
 
 export type RefProp = {
     enteredTitle : string,
@@ -15,6 +16,7 @@ const NewTask = ({onSave} : SaveProp) => {
     const title = useRef<HTMLInputElement>(null)
     const description = useRef<HTMLInputElement>(null)
     const dueDate = useRef<HTMLInputElement>(null)
+    const modalRef = useRef<ModalHandle>(null)
 
     const handleSave = () => {
         const enteredTitle = title.current?.value ?? ""
@@ -24,7 +26,8 @@ const NewTask = ({onSave} : SaveProp) => {
         if(enteredTitle.trim() === "" || 
         enteredDescription.trim() === "" || 
         enteredDueDate.trim() === ""){
-            
+            modalRef.current?.open()
+            return
         }
 
         onSave({enteredTitle, enteredDescription, enteredDueDate})
@@ -32,6 +35,11 @@ const NewTask = ({onSave} : SaveProp) => {
 
 
     return (
+        <>
+        <Modal ref={modalRef}>
+            <h2>Error</h2>
+            <button onClick={() => modalRef.current?.close()}>Close</button>
+        </Modal>
         <div className="w-[35rem] p-4">
         <menu className="flex items-center justify-end gap-4">
             <button className="bg-stone-900 text-white py-1 px-3 rounded-lg hover:bg-stone-800"
@@ -45,6 +53,7 @@ const NewTask = ({onSave} : SaveProp) => {
            <Input ref={dueDate} type="date" label="Due Date" textarea={false} />
         </div>
         </div>
+        </>
     )
 }
 
