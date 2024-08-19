@@ -10,9 +10,10 @@ export type RefProp = {
 
 type SaveProp = {
     onSave : (data : RefProp) => void
+    onCancel : () => void
 }
 
-const NewTask = ({onSave} : SaveProp) => {
+const NewTask = ({onSave, onCancel} : SaveProp) => {
     const title = useRef<HTMLInputElement>(null)
     const description = useRef<HTMLInputElement>(null)
     const dueDate = useRef<HTMLInputElement>(null)
@@ -44,7 +45,7 @@ const NewTask = ({onSave} : SaveProp) => {
         <menu className="flex items-center justify-end gap-4">
             <button className="bg-stone-900 text-white py-1 px-3 rounded-lg hover:bg-stone-800"
             onClick={handleSave}>Save</button>
-            <button className="text-stone-800">Cancel</button>
+            <button className="text-stone-800" onClick={onCancel}>Cancel</button>
         </menu>
 
         <div>

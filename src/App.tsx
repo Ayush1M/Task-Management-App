@@ -31,6 +31,15 @@ export default function App(){
         })
     }
 
+    function handleCancelTask(){
+        setTask(prev => {
+            return{
+                ...prev,
+                selectedTaskId : undefined
+            }
+        })
+    }
+
     function handleTask({enteredTitle, enteredDescription, enteredDueDate} : RefProp){
         setTask(prev => {
             const NewTask : SaveTaskProps = {
@@ -50,7 +59,7 @@ export default function App(){
     let content
 
     if(task.selectedTaskId === null){
-        content = <NewTask onSave={handleTask}/>
+        content = <NewTask onSave={handleTask} onCancel={handleCancelTask}/>
     }else if(task.selectedTaskId === undefined){
         content = <NoTaskSelected onAddTask= {handleAddTask}/>
     }
