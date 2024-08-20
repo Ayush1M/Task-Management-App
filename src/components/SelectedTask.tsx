@@ -1,10 +1,11 @@
 import { type SaveTaskProps } from "../App"
 
 type SelectedTaskProp = {
-    selectedTask : SaveTaskProps
+    selectedTask : SaveTaskProps,
+    onDelete : () => void
 }
 
-const SelectedTask = ({selectedTask} : SelectedTaskProp) => {
+const SelectedTask = ({selectedTask, onDelete} : SelectedTaskProp) => {
 
     const formattedDate = new Date(selectedTask.dueDate).toLocaleString("en-US", {
         year : "numeric",
@@ -17,7 +18,7 @@ const SelectedTask = ({selectedTask} : SelectedTaskProp) => {
             <header>
                 <div>
                     <h1>{selectedTask.title}</h1>
-                    <button>Delete</button>
+                    <button onClick={onDelete}>Delete</button>
                 </div>
                 <p>{formattedDate}</p>
                 <p>{selectedTask.description}</p>

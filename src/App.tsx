@@ -66,9 +66,19 @@ export default function App(){
         })
     }
 
+    function handleDeleteTask(){
+        setTask(prev => {
+            return{
+                ...prev,
+                selectedTaskId : undefined,
+                tasks : prev.tasks.filter((t) => t.id !== prev.selectedTaskId)
+            }
+        })
+    }
+
     const selectedTask = task.tasks.find(t => t.id === task.selectedTaskId) as SaveTaskProps
 
-    let content = <SelectedTask selectedTask={selectedTask} />
+    let content = <SelectedTask selectedTask={selectedTask} onDelete={handleDeleteTask} />
 
     if(task.selectedTaskId === null){
         content = <NewTask onSave={handleTask} onCancel={handleCancelTask}/>
