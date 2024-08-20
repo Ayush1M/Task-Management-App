@@ -57,6 +57,15 @@ export default function App(){
         })
     }
 
+    function handleSelectedTask(id : string){
+        setTask(prev => {
+            return{
+                ...prev,
+                selectedTaskId : id
+            }
+        })
+    }
+
     const selectedTask = task.tasks.find(t => t.id === task.selectedTaskId) as SaveTaskProps
 
     let content = <SelectedTask selectedTask={selectedTask} />
@@ -69,7 +78,9 @@ export default function App(){
 
     return (
         <main className="h-screen py-4 flex gap-8"> 
-            <Sidebar onAddTask= {handleAddTask} tasks={task.tasks}/>
+            <Sidebar onAddTask= {handleAddTask} 
+            tasks={task.tasks}
+            onSelect={handleSelectedTask} />
             {content}
         </main>
     )
