@@ -1,4 +1,5 @@
 import { type SaveTaskProps } from "../App"
+import Goals from "./Goals"
 
 type SelectedTaskProp = {
     selectedTask : SaveTaskProps,
@@ -23,6 +24,7 @@ const SelectedTask = ({selectedTask, onDelete} : SelectedTaskProp) => {
                 <p>{formattedDate}</p>
                 <p>{selectedTask.description}</p>
             </header>
+            <Goals />
         </div>
     )
 }
