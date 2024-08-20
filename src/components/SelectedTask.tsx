@@ -6,6 +6,12 @@ type SelectedTaskProp = {
 
 const SelectedTask = ({selectedTask} : SelectedTaskProp) => {
 
+    const formattedDate = new Date(selectedTask.dueDate).toLocaleString("en-US", {
+        year : "numeric",
+        month : "short",
+        day : "numeric"
+    })
+
     return (
         <div>
             <header>
@@ -13,7 +19,7 @@ const SelectedTask = ({selectedTask} : SelectedTaskProp) => {
                     <h1>{selectedTask.title}</h1>
                     <button>Delete</button>
                 </div>
-                <p></p>
+                <p>{formattedDate}</p>
                 <p>{selectedTask.description}</p>
             </header>
         </div>
