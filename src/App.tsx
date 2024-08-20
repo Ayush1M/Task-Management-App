@@ -3,6 +3,7 @@ import NewTask from "./components/NewTask"
 import NoTaskSelected from "./components/NoTaskSelected"
 import { useState } from "react"
 import { type RefProp } from "./components/NewTask"
+import SelectedTask from "./components/SelectedTask"
 
 export type SaveTaskProps = {
     title : string,
@@ -56,7 +57,9 @@ export default function App(){
         })
     }
 
-    let content
+    const selectedTask = task.tasks.find(t => t.id === task.selectedTaskId) as SaveTaskProps
+
+    let content = <SelectedTask selectedTask={selectedTask} />
 
     if(task.selectedTaskId === null){
         content = <NewTask onSave={handleTask} onCancel={handleCancelTask}/>
