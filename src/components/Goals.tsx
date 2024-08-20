@@ -1,3 +1,5 @@
+import InputGoal from "./InputGoal"
+
 const Goals = () => {
     return(
         <>
@@ -5,6 +7,7 @@ const Goals = () => {
             <h2>
                 Goals for the day
             </h2>
+            <InputGoal />
             <p>No goals added</p>
             <ul>
 
