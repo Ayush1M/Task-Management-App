@@ -13,6 +13,9 @@ const InputGoal = ({addGoal} : InputGoalProp) => {
     }
 
     function handleClick(){
+        if(enteredGoal.trim() === ""){
+            return
+        }
         addGoal(enteredGoal)
         setEnteredGoal("")
     }
