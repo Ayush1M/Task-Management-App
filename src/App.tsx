@@ -98,11 +98,21 @@ export default function App(){
         })
     }
 
+    function deleteGoal(id : string){
+        setTask(prev => {
+            return{
+                ...prev,
+                goals : prev.goals.filter((goal) => goal.id !== id)
+            }
+        })
+    }
+
     const selectedTask = task.tasks.find(t => t.id === task.selectedTaskId) as SaveTaskProps
 
     let content = <SelectedTask selectedTask={selectedTask} 
     onDelete={handleDeleteTask} 
-    addGoal = {handleAddGoal} 
+    addGoal = {handleAddGoal}
+    deleteGoal = {deleteGoal} 
     goals={task.goals} />
 
     if(task.selectedTaskId === null){

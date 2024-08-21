@@ -5,10 +5,11 @@ type SelectedTaskProp = {
     selectedTask : SaveTaskProps,
     onDelete : () => void,
     addGoal : (text : string) => void,
-    goals : SaveGoalProps[]
+    goals : SaveGoalProps[],
+    deleteGoal : (id : string) => void
 }
 
-const SelectedTask = ({selectedTask, onDelete, addGoal, goals} : SelectedTaskProp) => {
+const SelectedTask = ({selectedTask, onDelete, addGoal, goals, deleteGoal} : SelectedTaskProp) => {
 
     const formattedDate = new Date(selectedTask.dueDate).toLocaleString("en-US", {
         year : "numeric",
@@ -26,7 +27,7 @@ const SelectedTask = ({selectedTask, onDelete, addGoal, goals} : SelectedTaskPro
                 <p>{formattedDate}</p>
                 <p>{selectedTask.description}</p>
             </header>
-            <Goals addGoal={addGoal} goals={goals} />
+            <Goals addGoal={addGoal} goals={goals} deleteGoal={deleteGoal} />
         </div>
     )
 }

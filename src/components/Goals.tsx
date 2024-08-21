@@ -3,10 +3,11 @@ import InputGoal from "./InputGoal"
 
 type goalProp = {
     addGoal : (text : string) => void,
-    goals : SaveGoalProps[]
+    goals : SaveGoalProps[],
+    deleteGoal : (id : string) => void
 }
 
-const Goals = ({addGoal, goals} : goalProp) => {
+const Goals = ({addGoal, goals, deleteGoal} : goalProp) => {
     return(
         <>
         <section>
@@ -18,7 +19,10 @@ const Goals = ({addGoal, goals} : goalProp) => {
             {goals.length > 0 && 
             <ol>
                 {goals.map((goal) => (
-                    <li key={goal.id}>{goal.text}</li>
+                    <li key={goal.id}>
+                        {goal.text}
+                        <button onClick={() => deleteGoal(goal.id)}>Delete</button>
+                    </li>
                 ))}
             </ol>
             }
