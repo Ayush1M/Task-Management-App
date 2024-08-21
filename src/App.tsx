@@ -12,15 +12,23 @@ export type SaveTaskProps = {
     id : string
 }
 
+export type SaveGoalProps = {
+    text : string,
+    id : string,
+    taskId : string | null | undefined
+}
+
 type TaskProp = {
     selectedTaskId : string | null | undefined,
-    tasks : SaveTaskProps[]
+    tasks : SaveTaskProps[],
+    goals : SaveGoalProps[]
 }
 
 export default function App(){
     const [task, setTask] = useState<TaskProp>({
         selectedTaskId : undefined,
-        tasks : []
+        tasks : [],
+        goals : []
     })
 
     function handleAddTask(){
@@ -76,9 +84,26 @@ export default function App(){
         })
     }
 
+    function handleAddGoal(text : string){
+        setTask(prev => {
+            const NewGoal : SaveGoalProps = {
+                text : text,
+                id : crypto.randomUUID(),
+                taskId : task.selectedTaskId
+            }
+            return {
+                ...prev,
+                goals : [...prev.goals, NewGoal]
+            }
+        })
+    }
+
     const selectedTask = task.tasks.find(t => t.id === task.selectedTaskId) as SaveTaskProps
 
-    let content = <SelectedTask selectedTask={selectedTask} onDelete={handleDeleteTask} />
+    let content = <SelectedTask selectedTask={selectedTask} 
+    onDelete={handleDeleteTask} 
+    addGoal = {handleAddGoal} 
+    goals={task.goals} />
 
     if(task.selectedTaskId === null){
         content = <NewTask onSave={handleTask} onCancel={handleCancelTask}/>

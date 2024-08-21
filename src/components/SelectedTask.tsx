@@ -1,12 +1,14 @@
-import { type SaveTaskProps } from "../App"
+import { SaveGoalProps, type SaveTaskProps } from "../App"
 import Goals from "./Goals"
 
 type SelectedTaskProp = {
     selectedTask : SaveTaskProps,
-    onDelete : () => void
+    onDelete : () => void,
+    addGoal : (text : string) => void,
+    goals : SaveGoalProps[]
 }
 
-const SelectedTask = ({selectedTask, onDelete} : SelectedTaskProp) => {
+const SelectedTask = ({selectedTask, onDelete, addGoal, goals} : SelectedTaskProp) => {
 
     const formattedDate = new Date(selectedTask.dueDate).toLocaleString("en-US", {
         year : "numeric",
@@ -24,7 +26,7 @@ const SelectedTask = ({selectedTask, onDelete} : SelectedTaskProp) => {
                 <p>{formattedDate}</p>
                 <p>{selectedTask.description}</p>
             </header>
-            <Goals />
+            <Goals addGoal={addGoal} goals={goals} />
         </div>
     )
 }

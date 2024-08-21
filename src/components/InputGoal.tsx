@@ -1,6 +1,10 @@
 import { ChangeEvent, useState } from "react"
 
-const InputGoal = () => {
+type InputGoalProp = {
+    addGoal : (text : string) => void
+}
+
+const InputGoal = ({addGoal} : InputGoalProp) => {
 
     const [enteredGoal, setEnteredGoal] = useState<string>("")
 
@@ -8,11 +12,16 @@ const InputGoal = () => {
         setEnteredGoal(e.target.value)
     }
 
+    function handleClick(){
+        addGoal(enteredGoal)
+        setEnteredGoal("")
+    }
+
     return(
         <>
         <div>
             <input type="text" onChange={handleChange} value={enteredGoal}/>
-            <button>Add Goal</button>
+            <button onClick={handleClick}>Add Goal</button>
         </div>
         </>
     )
