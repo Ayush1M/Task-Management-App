@@ -4,11 +4,11 @@ type NoTaskSelectedProp = {
 
 const NoTaskSelected = ({onAddTask} : NoTaskSelectedProp) => {
     return (
-        <div className="flex flex-col justify-center items-center">
-        <h2>No Task Added</h2>
-        <p>Get Started with a new one.</p>
+        <div className="w-full flex flex-col justify-center items-center text-xl">
+        <h2 className="mb-4">No Task Added</h2>
+        <p className="mb-4">Get Started with a new one.</p>
         <button onClick={onAddTask} 
-        className="px-4 py-2 text-xs rounded-md bg-stone-700 text-stone-400">Add a new Task</button>
+        className="px-4 py-2 text-sm rounded-md bg-black text-latte">Add a new Task</button>
         </div>
     )
 }

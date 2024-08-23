@@ -34,16 +34,15 @@ const NewTask = ({onSave, onCancel} : SaveProp) => {
         onSave({enteredTitle, enteredDescription, enteredDueDate})
     }
 
-
     return (
         <>
         <Modal ref={modalRef}>
             <h2>Error</h2>
             <button onClick={() => modalRef.current?.close()}>Close</button>
         </Modal>
-        <div className="w-[35rem] p-4">
+        <div className="w-[40rem] p-4">
         <menu className="flex items-center justify-end gap-4">
-            <button className="bg-stone-900 text-white py-1 px-3 rounded-lg hover:bg-stone-800"
+            <button className="bg-black text-latte py-1 px-3 rounded-lg hover:bg-stone-800"
             onClick={handleSave}>Save</button>
             <button className="text-stone-800" onClick={onCancel}>Cancel</button>
         </menu>
