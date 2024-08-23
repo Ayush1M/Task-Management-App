@@ -37,12 +37,15 @@ const NewTask = ({onSave, onCancel} : SaveProp) => {
     return (
         <>
         <Modal ref={modalRef}>
-            <h2>Error</h2>
-            <button onClick={() => modalRef.current?.close()}>Close</button>
+            <h2 className="mb-3">Oops!!!</h2>
+            <p className="mb-8">Don't leave empty inputs.</p>
+            <button onClick={() => modalRef.current?.close()}
+                className="bg-maize text-black p-1 rounded-lg ml-auto flex justify-center w-1/5">Close
+            </button>
         </Modal>
         <div className="w-[40rem] p-4">
         <menu className="flex items-center justify-end gap-4">
-            <button className="bg-black text-latte py-1 px-3 rounded-lg hover:bg-stone-800"
+            <button className="bg-black text-latte py-1 px-3 rounded-lg hover:bg-stone-700"
             onClick={handleSave}>Save</button>
             <button className="text-stone-800" onClick={onCancel}>Cancel</button>
         </menu>

@@ -8,7 +8,7 @@ export default {
     extend: {
       colors : {
         "maize" : "#F1E038",
-        "latte" : "#FCF8E7",
+        "latte" : "#FFF496",
         "black" : "#000"
       },
     },

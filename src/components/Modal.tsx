@@ -26,7 +26,7 @@ const Modal = forwardRef<ModalHandle, ModalProp>(({children}, ref) => {
 
 
     return createPortal(
-        <dialog ref={dialog}>
+        <dialog ref={dialog} className="w-1/4 p-6 rounded-lg text-xl bg-black text-white backdrop:bg-stone-900/90">
             {children}
         </dialog>
     ,document.getElementById("modal-root") as Element)
