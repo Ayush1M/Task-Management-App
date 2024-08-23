@@ -13,8 +13,8 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(({ 
         <p className="flex flex-col gap-2 my-8">
             <label>{label}</label>
             {textarea ? 
-            <textarea ref={ref as React.RefObject<HTMLTextAreaElement>} className="resize-none px-2 py-1 border-2 rounded-md border-stone-800" /> : 
-            <input ref={ref as React.RefObject<HTMLInputElement>} className="p-1 border-2 rounded-md border-stone-800" {...props as InputProp} />}
+            <textarea ref={ref as React.RefObject<HTMLTextAreaElement>} className="resize-none px-2 py-1 border-b-2" /> : 
+            <input ref={ref as React.RefObject<HTMLInputElement>} className="p-1 border-b-2" {...props as InputProp} />}
         </p>
     )
 })
