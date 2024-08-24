@@ -4,10 +4,14 @@ import InputGoal from "./InputGoal"
 type goalProp = {
     addGoal : (text : string) => void,
     goals : SaveGoalProps[],
-    deleteGoal : (id : string) => void
+    deleteGoal : (id : string) => void,
+    taskId : string | null | undefined
 }
 
-const Goals = ({addGoal, goals, deleteGoal} : goalProp) => {
+const Goals = ({addGoal, goals, deleteGoal, taskId} : goalProp) => {
+
+    const filteredGoals = goals.filter((goal) => goal.taskId === taskId)
+
     return(
         <>
         <section>
@@ -15,10 +19,10 @@ const Goals = ({addGoal, goals, deleteGoal} : goalProp) => {
                 Goals for the day
             </h2>
             <InputGoal addGoal={addGoal} />
-            {goals.length === 0 && <p>No goals added</p>}
-            {goals.length > 0 && 
+            {filteredGoals.length === 0 && <p>No goals added</p>}
+            {filteredGoals.length > 0 && 
             <ul>
-                {goals.map((goal) => (
+                {filteredGoals.map((goal) => (
                     <li key={goal.id} className="mb-4 flex justify-between">
                         <span className="bg-latte py-1 px-2 text-xl w-[30%]">{goal.text}</span>
                         <button onClick={() => deleteGoal(goal.id)} className="hover:text-maize">Delete</button>

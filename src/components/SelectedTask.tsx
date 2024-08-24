@@ -27,7 +27,7 @@ const SelectedTask = ({selectedTask, onDelete, addGoal, goals, deleteGoal} : Sel
                 <p className="mb-4">{formattedDate}</p>
                 <p className="text-xl mb-4 pb-4 border-b-2 border-stone-300">{selectedTask.description}</p>
             </header>
-            <Goals addGoal={addGoal} goals={goals} deleteGoal={deleteGoal} />
+            <Goals addGoal={addGoal} goals={goals} deleteGoal={deleteGoal} taskId={selectedTask.id} />
         </div>
     )
 }
