@@ -23,7 +23,9 @@ const InputGoal = ({addGoal} : InputGoalProp) => {
     return(
         <>
         <div>
-            <input type="text" onChange={handleChange} value={enteredGoal}/>
+            <input type="text" 
+            onChange={handleChange} value={enteredGoal} 
+            className="bg-latte mr-4 mb-4 rounded-sm text-xl p-1 w-[40%]"/>
             <button onClick={handleClick}>Add Goal</button>
         </div>
         </>

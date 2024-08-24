@@ -11,7 +11,7 @@ const Goals = ({addGoal, goals, deleteGoal} : goalProp) => {
     return(
         <>
         <section>
-            <h2>
+            <h2 className="text-xl mt-8 mb-4">
                 Goals for the day
             </h2>
             <InputGoal addGoal={addGoal} />
