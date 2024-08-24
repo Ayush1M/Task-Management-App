@@ -18,14 +18,14 @@ const SelectedTask = ({selectedTask, onDelete, addGoal, goals, deleteGoal} : Sel
     })
 
     return (
-        <div>
+        <div className="w-[30%]">
             <header>
-                <div>
-                    <h1>{selectedTask.title}</h1>
+                <div className="flex justify-between">
+                    <h1 className="text-4xl mb-2">{selectedTask.title}</h1>
                     <button onClick={onDelete}>Delete</button>
                 </div>
-                <p>{formattedDate}</p>
-                <p>{selectedTask.description}</p>
+                <p className="mb-4">{formattedDate}</p>
+                <p className="text-xl mb-4 pb-4 border-b-2 border-stone-300">{selectedTask.description}</p>
             </header>
             <Goals addGoal={addGoal} goals={goals} deleteGoal={deleteGoal} />
         </div>
