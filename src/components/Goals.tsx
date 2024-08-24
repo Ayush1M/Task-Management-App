@@ -17,14 +17,14 @@ const Goals = ({addGoal, goals, deleteGoal} : goalProp) => {
             <InputGoal addGoal={addGoal} />
             {goals.length === 0 && <p>No goals added</p>}
             {goals.length > 0 && 
-            <ol>
+            <ul>
                 {goals.map((goal) => (
-                    <li key={goal.id}>
-                        {goal.text}
-                        <button onClick={() => deleteGoal(goal.id)}>Delete</button>
+                    <li key={goal.id} className="mb-4 flex justify-between">
+                        <span className="bg-latte py-1 px-2 text-xl w-[30%]">{goal.text}</span>
+                        <button onClick={() => deleteGoal(goal.id)} className="hover:text-maize">Delete</button>
                     </li>
                 ))}
-            </ol>
+            </ul>
             }
         </section>
         </>

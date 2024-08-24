@@ -89,11 +89,11 @@ export default function App(){
             const NewGoal : SaveGoalProps = {
                 text : text,
                 id : crypto.randomUUID(),
-                taskId : task.selectedTaskId
+                taskId : prev.selectedTaskId
             }
             return {
                 ...prev,
-                goals : [...prev.goals, NewGoal]
+                goals : [NewGoal,...prev.goals]
             }
         })
     }
