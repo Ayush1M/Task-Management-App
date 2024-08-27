@@ -1,10 +1,13 @@
 # Task Management App
 
+![](src/assets/screenshot1.png)
+
 ## Table of Content
 
 * [Overview of the Project](#overview-of-the-project)
 * [Whats The Approach](#whats-the-approach)
 * [Technologies I Used](#technologies-i-used)
+* [Screenshot](#screenshot)
  
  
 # Overview of the Project
@@ -35,3 +38,8 @@ A Task Managment App is a tool designed to track and organize your task and able
 * React
 * TypeScript
 * Tailwind CSS
+
+## Screenshot
+
+![](src/assets/screenshot2.png)
+![](src/assets/screenshot3.png)
