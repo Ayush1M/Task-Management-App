@@ -125,7 +125,8 @@ export default function App(){
         <main className="h-screen py-4 flex gap-8"> 
             <Sidebar onAddTask= {handleAddTask} 
             tasks={task.tasks}
-            onSelect={handleSelectedTask} />
+            onSelect={handleSelectedTask} 
+            selectedTaskId = {task.selectedTaskId} />
             {content}
         </main>
     )

@@ -3,10 +3,11 @@ import { type SaveTaskProps } from "../App"
 type SidebarProp = {
     onAddTask : () => void,
     tasks : SaveTaskProps[],
-    onSelect : (id : string) => void
+    onSelect : (id : string) => void,
+    selectedTaskId : string | null | undefined
 }
 
-const Sidebar = ({onAddTask, tasks, onSelect}: SidebarProp) => {
+const Sidebar = ({onAddTask, tasks, onSelect, selectedTaskId}: SidebarProp) => {
     return (
         <aside className="w-1/4 px-8 py-16 bg-black text-white rounded-r-xl">
             <h2 className="mb-8 font-bold text-3xl uppercase">Your Tasks</h2>
@@ -17,7 +18,7 @@ const Sidebar = ({onAddTask, tasks, onSelect}: SidebarProp) => {
             <ul>
                 {tasks.map((task) => (
                     <li key={task.id} onClick={() => onSelect(task.id)}
-                    className="text-xl mb-4 flex justify-between cursor-pointer">
+                    className={`text-xl mb-4 px-2 py-1 flex justify-between cursor-pointer ${task.id === selectedTaskId ? "bg-maize text-black px-2 py-1" : ""} `}>
                        <p>{task.title}</p>
                        <p>{task.dueDate}</p>
                     </li>
